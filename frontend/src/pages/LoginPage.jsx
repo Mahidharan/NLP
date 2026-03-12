@@ -18,9 +18,12 @@ export default function LoginPage({ onLogin }) {
         setTimeout(() => {
             setLoading(false);
 
+            // Extract a name from email if not provided
+            const emailName = email ? email.split('@')[0].charAt(0).toUpperCase() + email.split('@')[0].slice(1) : "User";
+
             // Save to local storage
             const userData = {
-                name: isRegister ? name : "Demo User",
+                name: isRegister && name ? name : emailName,
                 email: email
             };
             localStorage.setItem('user', JSON.stringify(userData));

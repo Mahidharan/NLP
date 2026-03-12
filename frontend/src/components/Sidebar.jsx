@@ -24,7 +24,7 @@ const navigation = [
 
 export default function Sidebar({ onLogout }) {
     const userStr = localStorage.getItem('user');
-    const user = userStr ? JSON.parse(userStr) : { name: "Demo User" };
+    const user = userStr ? JSON.parse(userStr) : { name: "Guest" };
     const initials = user.name ? user.name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase() : 'U';
 
     return (
